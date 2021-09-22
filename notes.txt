@@ -1,0 +1,92 @@
+# Capture Webapp Logs
+App logs are trace statements in your application code.
+application insights is a site extensino. Provides additional featuers such as usage and performance data. Requires the app insights SDK.
+writing logs to blob storage is only supported on windows.
+
+download file system log files:
+$az webapp log download --log-file <filename.zip> --resource-group <resource-group> --name <app-name>
+where filename.zip is the name of the zip file where you want to download to content to.
+
+# Control and organize resources
+
+naming convention examples: by resource type, environment (i.e. prod, qa, dev), department
+Tags: name/value pairs for organizing resources
+Policies: create, assign and manage policies --> enforce rules and allow for evaluation against existing resources.
+    consists of two parts. 1) a policy definition (what whould we enforce) 2) a policy assignment to what do we assign this policy
+Locks: prevent deletion (deletion mode) and/or modification (read-only mode) of resources
+
+# App Center
+Helps with the development of mobile applications. Among the useful functionality are: 
+    1) build, test and distribution automation
+    2) monitoring and crash analytics
+    3) release to different distribution groups.
+
+# Well Architected -- Performance Efficiency
+Scaling up or down --> increase or decrease resources based on resource settings (e.g. vCPU, RAM, IO)
+Scaling in or out --> increase or decrease total number of instances
+
+network latency can up significantly. latency with respect to data travelling from source to destination and back is commonly known as round-trip delay
+ways to reduce latency:
+    - create read replica in other region
+    - sync data between regions using Azure SQL Data sync
+    - Use globally distributed database such as cosmos db
+    - use caching technology for frequently accessed data
+
+Traffic Manager can be used to route traffic among regions to optimize latency. routing rules can be nested (e.g. first on geography, second on performance)
+
+storage latency. Use premium for production, standard for dev/test.
+caching 
+
+nonfunctional requirements don't tell what an application should do, but tell you what quality level it must meet.
+
+Azure monitor single management point for infrastructure-level logs and monitoring for most of your azure services
+High-level overview of Azure Monitor:
+    - data stores for storing metrics and logs
+    - different functions to perform on the data stores (i.e. insights, visualizations, analyzing, responding, integration)
+
+Application insights is a feature of Azure monitor
+
+Log Analytics: centralized logging to uncover issues that are difficult to track.
+
+
+# Well Architected Framework - Operational Excellence
+Monitoring can roughly be divided into three areas:
+    1) core monitoring --> Azure Monitor, Advisor, Service Health and Activity Log
+    2) deep infra monitoring --> Log Analytics: aggregate and query metrics across resources
+    3) deep application monitoring --> Application Insights: to do with telemetry, query and visualiaztion capabilities of application
+
+# Analyze Infrastructure with Azure Monitor
+Data in Azure Monitor is logged in a Log Analytics workspace
+Kusto language for quering
+
+# Azure Web Apps with Application Insights
+Features: Live metrics stream, metrics explorer, alerts, profiler, application map, usage analyis
+
+run-time instrumentation and client-side instrumentation only supporten on windows
+build-time instrumentation supportend on windows and linux through SDK
+difference is that run-time and client-side are taken care of while build-time requires code changes.
+
+Quality of Service (QoS) 
+
+
+# React to state changes azure services using Event Grid
+vm change size --> eventgrid in logicapps --> send mail
+
+# Holistic Monitoring Strategy
+
+Azure monitor: collecting, analyzing and visualizing of metrics and logs
+Azure Security Center: Monitors security of workloads
+Azure Sentinel: Proactively hunt for threas and anomalies
+
+
+
+
+
+
+
+
+
+
+
+
+
